@@ -176,7 +176,7 @@ namespace ComputerPlus.Interfaces.Reports.Arrest
             if (charge == null || lb_charges == null) return;
             var row = lb_charges.AddRow(
                 String.Format("{0}. {1}", lb_charges.RowCount + 1, charge.Charge),
-                charge.id.ToString(),
+                charge.ID.ToString(),
                 charge
              );
             if (!String.IsNullOrWhiteSpace(charge.Note))

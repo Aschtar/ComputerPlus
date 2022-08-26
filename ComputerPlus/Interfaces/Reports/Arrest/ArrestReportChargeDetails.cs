@@ -274,7 +274,6 @@ namespace ComputerPlus.Interfaces.Reports.Arrest
                 if (SelectedAvailableCharge == null || SelectedAvailableCharge.IsContainer) return;
                 var lineItem = new ArrestChargeLineItem(SelectedAvailableCharge, tb_notes.Component.Text);
                 AddChargeToReport(Report, lineItem);
-                
                 tb_notes.Component.ClearText();
                 SelectedAvailableCharge = null;
             }
@@ -285,7 +284,9 @@ namespace ComputerPlus.Interfaces.Reports.Arrest
                 tb_notes.Component.CursorPosition = new System.Drawing.Point(0, 0);
                 tb_notes.Component.ClearText();
                 SelectedAvailableCharge = null;
+                btnRemoveSelectedCharge.IsDisabled = true;
+                lb_charges.SelectedRow.UserData = 1;
             }
-        }    
+        }
     }
 }

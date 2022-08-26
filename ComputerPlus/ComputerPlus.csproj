@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ComputerPlus</RootNamespace>
     <AssemblyName>ComputerPlus</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
@@ -57,11 +57,11 @@
   <ItemGroup>
     <Reference Include="ALPRPlus, Version=0.2.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Dependencies\ALPRPlus.dll</HintPath>
+      <HintPath>..\..\..\..\Documents\Visual Studio 2022\References\ALPRPlus.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="British Policing Script">
-      <HintPath>Dependencies\British Policing Script.dll</HintPath>
+      <HintPath>..\..\..\..\Documents\Visual Studio 2022\References\British Policing Script.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Costura, Version=3.3.2.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
@@ -72,20 +72,19 @@
       <HintPath>Dependencies\Gwen.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="LSPD First Response">
-      <HintPath>Dependencies\LSPD First Response.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="LSPDFR+, Version=1.6.5.0, Culture=neutral, processorArchitecture=AMD64">
+    <Reference Include="LSPD First Response, Version=0.4.8242.35949, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Dependencies\LSPDFR+.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\..\Documents\Visual Studio 2022\References\LSPD First Response.dll</HintPath>
+    </Reference>
+    <Reference Include="LSPDFR+, Version=1.9.1.1, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Documents\Visual Studio 2022\References\LSPDFR+.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="RagePluginHook">
-      <HintPath>Dependencies\RagePluginHook.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="RagePluginHookSDK, Version=0.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Documents\Visual Studio 2022\References\RagePluginHookSDK.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -95,8 +94,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Xml" />
     <Reference Include="Traffic Policer">
-      <HintPath>Dependencies\Traffic Policer.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\..\Documents\Visual Studio 2022\References\Traffic Policer.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -320,12 +318,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\Reports\Arrest\ArrestReportAdditionalPartiesTemplate.resx">
       <DependentUpon>ArrestReportAdditionalPartiesTemplate.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\Reports\Arrest\ArrestReportChargeDetailsTemplate.resx">
       <DependentUpon>ArrestReportChargeDetailsTemplate.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\Reports\Arrest\ArrestReportContainerTemplate.resx">
       <DependentUpon>ArrestReportContainerTemplate.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\Reports\Arrest\ArrestReportPedDetailsTemplate.resx">
       <DependentUpon>ArrestReportPedDetailsTemplate.cs</DependentUpon>
@@ -352,23 +353,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /Y "$(TargetDir)ComputerPlus.dll" "$(TargetDir)Packaged\GTA V Main Folder\Plugins\LSPDFR\"
-xcopy /Y "$(TargetDir)ComputerPlus.pdb" "$(TargetDir)Packaged\GTA V Main Folder\Plugins\LSPDFR\"
-xcopy /Y "$(ProjectDir)Resources\*.dll" "$(TargetDir)Packaged\GTA V Main Folder\"
-xcopy /Y "$(ProjectDir)Resources\*.jpg" "$(TargetDir)Packaged\GTA V Main Folder\Plugins\LSPDFR\ComputerPlus\"
-xcopy /Y "$(ProjectDir)Resources\*.xml" "$(TargetDir)Packaged\GTA V Main Folder\Plugins\LSPDFR\ComputerPlus\"
-copy /Y "$(ProjectDir)..\README.md" "$(TargetDir)Packaged\readme.txt"
-
-xcopy /Y "$(ProjectDir)Resources\*.png" "$(TargetDir)Packaged\GTA V Main Folder\Plugins\LSPDFR\ComputerPlus\"
-xcopy /Y "$(ProjectDir)Resources\icons\*.png" "$(TargetDir)Packaged\GTA V Main Folder\Plugins\LSPDFR\ComputerPlus\icons\"
-xcopy /Y "$(ProjectDir)Resources\backgrounds\*.jpg" "$(TargetDir)Packaged\GTA V Main Folder\Plugins\LSPDFR\ComputerPlus\backgrounds\"
-
-xcopy /Y "$(ProjectDir)Resources\ComputerPlus.ini" "$(TargetDir)Packaged\GTA V Main Folder\Plugins\LSPDFR\"
-
-
-xcopy /Y "$(TargetDir)ComputerPlus.dll" "D:\Games\Grand Theft Auto V\Plugins\LSPDFR"
-
-xcopy /Y "$(TargetDir)ComputerPlus.pdb" "D:\Games\Grand Theft Auto V\Plugins\LSPDFR"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>

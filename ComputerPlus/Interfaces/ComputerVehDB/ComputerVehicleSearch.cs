@@ -27,9 +27,9 @@ namespace ComputerPlus.Interfaces.ComputerVehDB
 
         ~ComputerVehicleSearch()
         {
-            list_manual_results.RowSelected -= onListItemSelected;
-            list_collected_tags.RowSelected -= onListItemSelected;
-            text_manual_name.SubmitPressed -= onSearchSubmit;
+            list_manual_results.RowSelected -= OnListItemSelected;
+            list_collected_tags.RowSelected -= OnListItemSelected;
+            text_manual_name.SubmitPressed -= OnSearchSubmit;
         }
 
         public override void InitializeLayout()
@@ -42,9 +42,9 @@ namespace ComputerPlus.Interfaces.ComputerVehDB
             PopulateAnprList();
             list_collected_tags.AllowMultiSelect = false;
             list_manual_results.AllowMultiSelect = false;
-            list_collected_tags.RowSelected += onListItemSelected;
-            list_manual_results.RowSelected += onListItemSelected;
-            text_manual_name.SubmitPressed += onSearchSubmit;
+            list_collected_tags.RowSelected += OnListItemSelected;
+            list_manual_results.RowSelected += OnListItemSelected;
+            text_manual_name.SubmitPressed += OnSearchSubmit;
             Function.LogDebug("Checking currently pulled over");
             var currentPullover = ComputerVehicleController.CurrentlyPulledOver;
             
@@ -65,7 +65,7 @@ namespace ComputerPlus.Interfaces.ComputerVehDB
             list_manual_results.UnselectAll();
         }
 
-        private void onSearchSubmit(Base sender, EventArgs arguments)
+        private void OnSearchSubmit(Base sender, EventArgs arguments)
         {
             String tag = text_manual_name.Text.ToUpper();
             if (String.IsNullOrWhiteSpace(tag)) return;
@@ -95,7 +95,7 @@ namespace ComputerPlus.Interfaces.ComputerVehDB
             this.Close();
         }
 
-        private void onListItemSelected(Base sender, ItemSelectedEventArgs arguments)
+        private void OnListItemSelected(Base sender, ItemSelectedEventArgs arguments)
         {
             try
             { 

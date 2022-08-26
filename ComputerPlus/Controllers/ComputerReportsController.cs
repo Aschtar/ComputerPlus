@@ -208,7 +208,7 @@ namespace ComputerPlus.Controllers
                     foreach (var chargeDoc in chargeDocs)
                     {
                         var charge = new ArrestChargeLineItem();
-                        charge.id = chargeDoc.Id;
+                        charge.ID = chargeDoc.Id;
                         charge.Charge = chargeDoc.Charge;
                         charge.IsFelony = chargeDoc.IsFelony;
                         charge.Note = chargeDoc.Note == null ? String.Empty : chargeDoc.Note;
@@ -304,7 +304,7 @@ namespace ComputerPlus.Controllers
                 randomChargeName = randomChargeName.Substring(0, randomChargeName.Length - 3);
             }
             ArrestChargeLineItem newCharge = new ArrestChargeLineItem();
-            newCharge.id = new Guid();
+            newCharge.ID = new Guid();
             newCharge.Charge = randomChargeName;
             newCharge.IsFelony = isFelony;
             newCharge.Note = String.Empty;

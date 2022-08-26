@@ -22,7 +22,7 @@ namespace ComputerPlus.Interfaces.ComputerVehDB
   
     internal static class ComputerVehicleController
     {
-        private readonly static List<ComputerPlusEntity> RecentSearches = new List<ComputerPlusEntity>();
+        //private readonly static List<ComputerPlusEntity> RecentSearches = new List<ComputerPlusEntity>();
         internal static readonly List<ALPR_Arguments> ALPR_Detected = new List<ALPR_Arguments>(10);
         private static ComputerPlusEntity _LastSelected = null;
         public static ComputerPlusEntity LastSelected
@@ -132,7 +132,7 @@ namespace ComputerPlus.Interfaces.ComputerVehDB
             return vehicle ? LookupVehicle(vehicle) : null;
         }
 
-        private static ComputerPlusEntity generateVehicleOwner(string ownerName)
+        private static ComputerPlusEntity GenerateVehicleOwner(string ownerName)
         {
             Ped ped = null;
             while (ped == null)
@@ -167,7 +167,7 @@ namespace ComputerPlus.Interfaces.ComputerVehDB
                 if (!driverPersona.FullName.Equals(ownerName))
                 {
                     owner = ComputerPedController.Instance.LookupPersona(ownerName);
-                    if (owner == null) owner = generateVehicleOwner(ownerName);
+                    if (owner == null) owner = GenerateVehicleOwner(ownerName);
                 }
                 else
                 {
@@ -177,7 +177,7 @@ namespace ComputerPlus.Interfaces.ComputerVehDB
             else
             {
                 owner = ComputerPedController.Instance.LookupPersona(ownerName);
-                if (owner == null) owner = generateVehicleOwner(ownerName);
+                if (owner == null) owner = GenerateVehicleOwner(ownerName);
             }
             return ComputerPlusEntity.CloneFrom(owner, vehicle, vehiclePersona);
         } 

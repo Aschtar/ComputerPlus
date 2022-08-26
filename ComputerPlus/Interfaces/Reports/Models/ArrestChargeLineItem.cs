@@ -9,7 +9,7 @@ namespace ComputerPlus.Interfaces.Reports.Models
     {
 
 //        [PrimaryKey]
-        public Guid id
+        public Guid ID
         {
             get;
             set;
@@ -51,7 +51,7 @@ namespace ComputerPlus.Interfaces.Reports.Models
 
         public String Id()
         {
-            return this.id.ToString();
+            return this.ID.ToString();
         }
 
         public ArrestChargeLineItem() : this(null, String.Empty)
@@ -64,7 +64,7 @@ namespace ComputerPlus.Interfaces.Reports.Models
 
         public ArrestChargeLineItem(Guid id, Charge charge, String note)
         {
-            this.id = id;
+            this.ID = id;
             Charge = charge != null ? charge.Name : String.Empty;
             Note = note != null ? note : String.Empty;
             IsFelony = charge != null ? charge.IsFelony : false;
